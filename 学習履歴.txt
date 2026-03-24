@@ -1,0 +1,66 @@
+20260219：docker学習開始
+
+■導入
+■はじめる
+■こんにちは世界
+
+・docker pull busybox
+→dockerイメージをプルした
+
+・docker images
+→システム上のすべてのdockerイメージを確認した
+
+・docker run busybox echo "hello from busybox"
+→busyboxを起動した。コマンドが実行されたみたい
+
+・docker ps
+→現在実行中のすべてのコンテナを表示する
+
+・docker run -it busybox sh
+→LinuxCLIみたいなのが立ち上がった。 -itをつけて実行するとコンテナ内の対話型端末に接続される
+
+
+
+20260324：
+
+■Dockerを使用したWebアプリケーション
+
+＜静的サイト＞
+・チュートリアル用にすでに作成されたDockerイメージを取得して実行してみる。
+　docker run --rm -it prakhar1989/static-site
+　→Nginxが立ち上がった
+
+・docker run -d -P --name static-site prakhar1989/static-site
+　-Pでランダムなポートに公開する
+
+・docker port static-site
+　公開されたポートを確認し、アクセスする。
+　静的webページが見れた。
+
+・docker run -p 8888:80 prakhar1989/static-site
+　ポートを指定することも可能
+
+
+＜Dockerイメージ＞
+・ローカルで使用可能なイメージ一覧を確認
+　docker images
+
+　イメージはgitリポジトリのようなもの。
+　イメージは変更を加えてコミットできる。複数のバージョンを持つことも可能。らしい。
+
+・チュートリアルの著者が作成したFlaskアプリケーションをクローンする。
+　git clone https://github.com/prakhar1989/docker-curriculum.git
+
+・いちからdockerfileを作成していく。
+
+・dockerfileを作り終わったので、docker build する。
+docker build -t ryotaro615/catnip .
+
+・docker run -p 8888:5000 ryotaro615/catnip
+　起動
+　コンテナ側は5000ポートで実行。ローカルは8888につなげるとコンテナにアクセスできるって意味らしい
+
+・ここで成果物共有のために一旦、githubにpushしておきます。。
+
+
+
