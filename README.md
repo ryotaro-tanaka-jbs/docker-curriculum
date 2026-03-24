@@ -1,6 +1,4 @@
-Docker Curriculum
-===
+# 目標-Docker学習の成果物
 
-> Learn to build and deploy your distributed applications easily to the cloud with Docker!
-
-Follow the curriculum on [docker-curriculum.com](https://docker-curriculum.com/)
+> flaskでできたアプリのDockerイメージを作って、ローカルで実行するなどした。
+> 学習した内容は、学習履歴.txtに記載。
